@@ -10,14 +10,14 @@ create table users(
 	deleted_at datetime,
 	updated_at datetime,
 	created_at timestamp default current_timestamp 
-)
+);
 create table category(
 	id bigint unsigned not null auto_increment primary key,
 	name varchar(255) not null,
 	deleted_at datetime,
 	updated_at datetime,
 	created_at timestamp default current_timestamp 
-)
+);
 create table expense(
 	id bigint unsigned not null auto_increment primary key,
 	user_id bigint unsigned not null,
@@ -26,4 +26,4 @@ create table expense(
 	deleted_at datetime,
 	updated_at datetime,
 	created_at timestamp default current_timestamp 
-)
+);
