@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -35,5 +38,16 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    public function postLogin(Request $request)
+    {
+        $user=User::where('username','=',$request->input('username'))->first();
+        //TODO 
+        //match the hashed password as well
+        if($user)
+        {
+            return $user;
+        }
+        \App::abort(403,'Email or password is incorrect');
     }
 }
