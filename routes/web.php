@@ -15,5 +15,6 @@ header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
 Route::get('/', function () {
     return 'Api is running';
 });
+Route::resource('categories','Api\CategoryController');
 Route::post('auth/register','Auth\RegisterController@postRegister');
 Route::post('auth/login','Auth\LoginController@postLogin');
