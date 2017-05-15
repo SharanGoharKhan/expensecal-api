@@ -68,4 +68,17 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    public function postRegister(Request $request)
+    {
+        $email=$request->input('email');
+        $user = User::whereEmail($email)->first();
+        if(!$user){
+            $user = User::create($request->all());
+        }
+        else
+        {
+            \App::abort('403','Email already exists');
+        }
+        return $user;
+    }
 }
