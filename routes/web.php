@@ -1,5 +1,6 @@
 <?php
-
+header('Access-Control-Allow-Origin: *');
+header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +13,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Api is running';
 });
+Route::post('auth/register','Auth\RegisterController@postRegister');
+Route::post('auth/login','Auth\LoginController@postLogin');

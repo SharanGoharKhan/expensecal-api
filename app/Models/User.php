@@ -8,8 +8,8 @@ class User extends Model
 {
   
     protected $table = 'users';
-    protected $fillable = ['first_name','last_name','email','password'];
-    protected $hidden = ['password','remember_token','token_expired'];
+    protected $fillable = ['username','email','gender','date_of_birth'];
+    protected $hidden = ['password','access_token','token_expired'];
 
     public function setAccessToken()
     {
@@ -19,7 +19,7 @@ class User extends Model
     }
 }
 User::created(function($user){
-	$user->setAccessToken();
+    $user->setAccessToken();
 });
 User::creating(function($user)
 {
