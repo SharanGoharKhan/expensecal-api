@@ -72,13 +72,17 @@ class RegisterController extends Controller
     }
     public function postRegister(Request $request)
     {
+        \Log::info("Post register call");
         $email=$request->input('email');
+        \Log::info("Email : ".$email);
         $user = User::whereEmail($email)->first();
         if(!$user){
+            \Log::info("if statement: ".$user);
             $user = User::create($request->all());
         }
         else
         {
+            \Log::info("else statement: ".$user);
             \App::abort('403','Email already exists');
         }
         return $user;

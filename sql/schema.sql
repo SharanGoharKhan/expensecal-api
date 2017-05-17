@@ -23,6 +23,7 @@ create table expense(
 	user_id bigint unsigned not null,
 	category_id bigint unsigned not null,
 	amount decimal(8,4),
+	date_expense datetime,
 	deleted_at datetime,
 	updated_at datetime,
 	created_at timestamp default current_timestamp 
