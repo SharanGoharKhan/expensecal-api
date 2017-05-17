@@ -19,3 +19,4 @@ Route::resource('categories','Api\CategoryController');
 Route::post('auth/register','Auth\RegisterController@postRegister');
 Route::post('auth/login','Auth\LoginController@postLogin');
 Route::resource('expense','Api\ExpenseController');
+Route::get('expenseById/{id}','Api\ExpenseController@getExpenses');

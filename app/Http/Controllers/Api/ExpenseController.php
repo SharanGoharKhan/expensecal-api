@@ -90,4 +90,8 @@ class ExpenseController extends Controller
     {
         
     }
+    public function getExpenses($id)
+    {	
+    	return Expense::where('user_id','=',$id)->get();
+    }
 }
